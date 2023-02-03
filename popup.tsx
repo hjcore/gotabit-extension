@@ -1,28 +1,18 @@
-import { useState } from "react"
+import { ThemeProvider } from "@mui/material/styles"
+import { HashRouter } from "react-router-dom"
+import AppRoutes from "routes/routes"
+import theme from "theme"
 
-function IndexPopup() {
-  const [data, setData] = useState("")
+import "./App.css"
 
+function App() {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        padding: 16
-      }}>
-      <h2>
-        Welcome to your{" "}
-        <a href="https://www.plasmo.com" target="_blank">
-          Plasmo
-        </a>{" "}
-        Extension!
-      </h2>
-      <input onChange={(e) => setData(e.target.value)} value={data} />
-      <a href="https://docs.plasmo.com" target="_blank">
-        View Docs
-      </a>
-    </div>
+    <ThemeProvider theme={theme}>
+      <HashRouter>
+        <AppRoutes />
+      </HashRouter>
+    </ThemeProvider>
   )
 }
 
-export default IndexPopup
+export default App
